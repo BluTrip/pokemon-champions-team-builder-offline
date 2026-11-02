@@ -1,0 +1,13 @@
+DATA SOURCES / ATTRIBUTION
+
+This project is an independent offline-first front end. It retrieves and caches data from:
+1. Gheist23/pokemonbattledata — Pokémon Champions battle data, builder app data, and per-Pokémon learnable-move CSVs.
+   https://github.com/Gheist23/pokemonbattledata
+2. tinoxo/PokeCalc — Regulation M-C roster and legality snapshots.
+   https://github.com/tinoxo/PokeCalc
+3. Seancheey/PokeDD — Regulation M-C additions and overrides.
+   https://github.com/Seancheey/PokeDD
+4. otterlyclueless/pokemon-champions-data — fallback Champions learnsets.
+   https://github.com/otterlyclueless/pokemon-champions-data
+
+Data is cached locally after the first sync. Community datasets may change; use Sync database to refresh.

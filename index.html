@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#101923">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Champions Builder">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="styles.css">
+<title>Pokémon Champions — Reg M-C Team Builder</title>
+</head>
+<body>
+<header class="app-header">
+  <div class="brand"><div class="brand-mark">C</div><div><div class="eyebrow">OFFLINE TEAM BUILDER</div><h1>Pokémon Champions</h1></div></div>
+  <div class="header-right"><span class="reg-badge">REG M-C</span><span id="connection" class="connection">Checking database…</span></div>
+</header>
+<main>
+  <section class="hero">
+    <div><div class="eyebrow">COMPETITIVE TEAM LAB</div><h2>Build your team.</h2><p>Champions Pokédex, Pokémon-specific abilities and learnable moves, held items, and Stat Points.</p></div>
+    <div class="hero-actions"><button id="syncBtn" class="btn btn-secondary">↻ Sync database</button><button id="newTeamBtn" class="btn btn-primary">＋ New team</button></div>
+  </section>
+
+  <section id="setupPanel" class="setup-panel hidden">
+    <div class="setup-title"><div><h3>Download the Regulation M-C database</h3><p>The first sync needs internet. The database is saved on this iPhone for offline use.</p></div><span class="db-icon">▦</span></div>
+    <div class="progress-track"><div id="progressBar"></div></div>
+    <div class="setup-meta"><span id="progressText">Waiting to sync…</span><span id="progressPct">0%</span></div>
+    <div id="setupError" class="error-text"></div>
+  </section>
+
+  <section class="team-toolbar">
+    <div class="team-name-wrap"><label for="teamName">TEAM NAME</label><input id="teamName" value="My Champions Team" maxlength="50"></div>
+    <div class="toolbar-actions"><button id="saveBtn" class="btn btn-secondary">Save</button><button id="loadBtn" class="btn btn-secondary">Load</button><button id="exportBtn" class="btn btn-secondary">Export</button><button id="importBtn" class="btn btn-secondary">Import</button></div>
+  </section>
+
+  <section class="summary-row">
+    <div><strong id="teamCount">0 / 6</strong><span>Pokémon</span></div>
+    <div><strong id="spTotal">0 / 396</strong><span>Stat Points</span></div>
+    <div><strong id="itemCount">0</strong><span>Held items</span></div>
+    <div class="summary-status" id="teamStatus">Add a Pokémon to begin.</div>
+  </section>
+
+  <section id="teamGrid" class="team-grid"></section>
+  <section class="lower-grid">
+    <article class="panel">
+      <div class="panel-heading"><div><div class="eyebrow">TEAM VALIDATION</div><h3>Regulation M-C checks</h3></div><span class="check-icon">✓</span></div>
+      <div id="checks" class="checks"><p class="muted">Your team checks will appear here.</p></div>
+    </article>
+    <article class="panel">
+      <div class="panel-heading"><div><div class="eyebrow">DATABASE</div><h3>Offline data status</h3></div><span class="db-icon">▦</span></div>
+      <div id="dbStats" class="db-stats"><p class="muted">Sync the database to populate the Pokédex.</p></div>
+      <p class="source-note">Data is cached on this device after syncing. Once the first sync finishes, the builder can be used without internet.</p>
+    </article>
+  </section>
+  <section class="footer-note">Independent fan-made utility. Not affiliated with Nintendo, Game Freak, The Pokémon Company, or Pokémon Champions.</section>
+</main>
+
+<dialog id="dexDialog" class="dex-dialog">
+  <div class="dialog-top"><div><div class="eyebrow">REGULATION M-C POKÉDEX</div><h2>Select a Pokémon</h2></div><button class="icon-btn" id="closeDex" aria-label="Close">✕</button></div>
+  <input id="dexSearch" class="search-input" type="search" placeholder="Search Pokémon or form…" autocomplete="off">
+  <div id="dexResults" class="dex-results"></div>
+</dialog>
+<dialog id="textDialog" class="text-dialog">
+  <div class="dialog-top"><div><div class="eyebrow">TEAM TEXT</div><h2 id="textDialogTitle">Export team</h2></div><button class="icon-btn" id="closeText">✕</button></div>
+  <textarea id="teamText" spellcheck="false"></textarea>
+  <div class="dialog-actions"><button id="copyText" class="btn btn-primary">Copy text</button><button id="applyImport" class="btn btn-secondary">Import text</button></div>
+  <p id="textMessage" class="muted"></p>
+</dialog>
+<dialog id="loadDialog" class="text-dialog">
+  <div class="dialog-top"><div><div class="eyebrow">LOCAL TEAM LIBRARY</div><h2>Load a saved team</h2></div><button class="icon-btn" id="closeLoad">✕</button></div>
+  <div id="savedTeams" class="saved-list"></div>
+</dialog>
+<script src="app.js"></script>
+</body>
+</html>

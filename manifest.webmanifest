@@ -1,0 +1,11 @@
+{
+  "name": "Pokémon Champions Reg M-C Team Builder",
+  "short_name": "Champions Builder",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0d141d",
+  "theme_color": "#101923",
+  "description": "Offline-first Pokémon Champions Regulation M-C team builder."
+}
